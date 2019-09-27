@@ -11,3 +11,8 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
 - project development process
     - Use Case Diag
     - Class Diag(ER Diag)
+    - views
+    - templates
+    - static files setup
+        - taking the advantages of bootstrap for css stylesheet
+
