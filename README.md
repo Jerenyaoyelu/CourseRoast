@@ -25,3 +25,12 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
             - after creating admin account, go to URL: ```http://127.0.0.1:8000/admin/``` to the login page
             - use username and password to log into the administration interface 
 
+- Advanced Topics
+    - URLs
+        - adding new pages:
+            > add url() in urlpatterns in urls.py
+            > add corresponding views function in views.py
+            > add corresponding html file in templates
+            > write unit tests in tests.py
+                > new page, new test class
+    - Forms
