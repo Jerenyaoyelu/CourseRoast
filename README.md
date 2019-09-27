@@ -28,9 +28,9 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
 - Advanced Topics
     - URLs
         - adding new pages:
-            > add url() in urlpatterns in urls.py
-            > add corresponding views function in views.py
-            > add corresponding html file in templates
-            > write unit tests in tests.py
-                > new page, new test class
+            > - add url() in urlpatterns in urls.py
+            > - add corresponding views function in views.py
+            > - add corresponding html file in templates
+            > - write unit tests in tests.py
+                > - new page, new test class
     - Forms
