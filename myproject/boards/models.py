@@ -6,6 +6,11 @@ class Board(models.Model):
     name = models.CharField(max_length = 30, unique = True)
     description = models.CharField(max_length = 100)
 
+    #__str__ method is a string representation of an object
+    #we can use board name to represent it
+    def __str__(self):
+        return self.name
+
 class Topic(models.Model):
     subject = models.CharField(max_length = 255)
     last_update = models.DateTimeField(auto_now_add = True)
