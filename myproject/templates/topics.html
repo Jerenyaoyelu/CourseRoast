@@ -7,5 +7,31 @@
 {% endblock %}
 
 {% block content %}
-
+    <div class='mb-4'><!--space between button and table-->
+        <a href="{% url 'new_topic' board.pk %}" class="btn btn-primary">New Topic</a>
+    </div>
+    <table class='table'>
+        <thead class='thead-inverse' style="background-color: black">
+            <tr>
+                <th style="color:white">Topic</th>
+                <th style="color:white">Starter</th>
+                <th style="color:white">Replies</th>
+                <th style="color:white">Views</th>
+                <th style="color:white">Last Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for topic in board.topics.all %}
+            <!--to return all topics-->
+            <!--.filter() to filter some data-->
+                <tr>
+                    <td>{{topic.subject}}</td>
+                    <td>{{topic.starter.username}}</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>{{ topic.last_update }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

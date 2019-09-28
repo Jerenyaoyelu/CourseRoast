@@ -30,6 +30,7 @@ urlpatterns = [
     #\d matches [0-9] and other digit characters.
     #'+' signifies that there must be at least 1 or more digits in the number
     url(r'^boards/(?P<pk>\d+)/$',views.board_topics,name='board_topics'),
+    url(r'^boards/(?P<pk>\d+)/new/$',views.new_topic,name='new_topic'),
 
     #1. adding page
     # url(r'^about/$',view.about,name='about'),
