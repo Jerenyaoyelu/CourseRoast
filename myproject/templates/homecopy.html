@@ -1,0 +1,56 @@
+{% load static %}<!--load the Static Files App template tags --><!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Boards</title>
+        <!--The template tag % static % is used to compose the URL where the resource lives. In this case, 
+            the % static 'css/bootstrap.min.css' % will return /static/css/bootstrap.min.css, 
+            which is equivalent to http://127.0.0.1:8000/static/css/bootstrap.min.css.-->
+        <!--
+            The % static % template tag uses the STATIC_URL configuration in the settings.py to compose the final URL. 
+            For example, if you hosted your static files in a subdomain like https://static.example.com/, 
+            we would set the STATIC_URL=https://static.example.com/ then the % static 'css/bootstrap.min.css' % 
+            would return https://static.example.com/css/bootstrap.min.css.
+        -->
+        <link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+        <div class = "container">
+            <ol class="breadcrumb my-4">
+                <li class = "breadcrumb-item active">Boards</li>
+            </ol>
+            <table class = "table">
+                <thead class = "thead-inverse" style="background-color:black">
+                    <tr><!--a row-->
+                        <th style="color: white">Board</th><!--a head cell-->
+                        <th style="color:white">Posts</th>
+                        <th style="color:white">Topics</th>
+                        <th style="color:white">Last Post</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Django Template Language-->
+                    <!--Before we can use this HTML page, 
+                        we have to tell Django where to find our application’s templates.-->
+                    <!--go to setting.py and set DIRS key to the path of templates-->
+                    {% for board in boards %}
+                        <tr>
+                            <!--cell for Board-->
+                            <td>
+                                <!--% url URLname arbitrary-num-argu % template tag to compose the applications URLs-->
+                                <a href="{%url 'board_topics' board.pk %}">{{board.name}}</a>
+                                <small class="text-muted d-block">{{board.description}}</small>
+                            </td>
+                            <!--cell for Posts-->
+                            <td class="align-middle">0</td>
+                            <!--cell for Topics-->
+                            <td class="align-middle">0</td>
+                            <!--cell for Last post-->
+                            <td></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

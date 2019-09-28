@@ -33,4 +33,9 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
             > - add corresponding html file in templates
             > - write unit tests in tests.py
                 > - new page, new test class
+        - URL routing:
+            > - add unit tests
+            > - add links in html file using the ```{% url [urlName] [arbitrary num of args]%}```
+        - Reusable Templates
+            > - create a master page with the base stuff
     - Forms
