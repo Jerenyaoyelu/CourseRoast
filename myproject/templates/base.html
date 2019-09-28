@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Django Boards{% endblock %}</title>
+    <title>{% block title %}CouRoast{% endblock %}</title>
+    <!--change font of logo-->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <!--need to create separately-->
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
 </head>
 <body>
+    <!--navigation bar with links-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">CouRoast</a>
+        </div>
+    </nav>
     <div class="container">
         <ol class="breadcrumb my-4">
             <!--for reservation of a space for child template-->
