@@ -7,6 +7,22 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
 
 - Get Started
     - Installation, env setup
+    - Starting a new project
+        > - ``` django-admin startproject [porjectName]```
+        > - "manage.py": shortcut to use the django-admin command-line utility. We use it to run dev server, tests, create migrations and much more
+        > - "__init__.py": it is an empty file which tells django this folder is a Python package
+        > - "settings.py": contains all projects configuration.
+        > - "urls.py": responsible for mapping the routes and paths in the project. For example, if you want to show something in the URL ```/about/```, you have to map it here first.
+        > - "wsgi.py": a simple gateway interface for deployment.
+
+
+        Django comes with a simple web server so that we dont have to install anything to run the project locally during the dev. Command is ``` Python manage.py runserver```
+
+        - Important concepts
+            - app: is a web application that does something. An app usually is composed of a set of models(DB tables), views, templates, tests
+            - project: is a collection of configurations and apps.
+        - Starting an app
+            - 
     - Hello World app
 
 - Fundamentals
