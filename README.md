@@ -10,7 +10,7 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
     - Starting a new project
         > - ``` django-admin startproject [porjectName]```
         > - "manage.py": shortcut to use the django-admin command-line utility. We use it to run dev server, tests, create migrations and much more
-        > - "__init__.py": it is an empty file which tells django this folder is a Python package
+        > - "\__init__.py": it is an empty file which tells django this folder is a Python package
         > - "settings.py": contains all projects configuration.
         > - "urls.py": responsible for mapping the routes and paths in the project. For example, if you want to show something in the URL ```/about/```, you have to map it here first.
         > - "wsgi.py": a simple gateway interface for deployment.
@@ -21,9 +21,21 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
         - Important concepts
             - app: is a web application that does something. An app usually is composed of a set of models(DB tables), views, templates, tests
             - project: is a collection of configurations and apps.
+
         - Starting an app
-            - 
-    - Hello World app
+            - Note: should in the same dir where manage.py exists
+            - ```django-admin startapp [appName]```
+            - "migrations/": here django stores files to kkep track of the changes created in "models.py", so to keep synchronization of DB and "models.py"
+            - "admin.py": a configuration file for a built-in django app called Django Admin
+            - "apps.py": a configuration file for app itself
+            - "models.py": where we define entities of web application. It is automatically translated into DB table by Django
+            - "tests.py": is used to write unit tests for the app
+            - "views.py": where we handle the request/response cycle of web app
+        - Configure project to use the app
+            - Go to ```INSTALLED_APPS``` in "settings.py" and append the app to it
+            - write view func in "views.py"
+            - tell django when to serve this view, add ```url()``` in "urls.py"
+            - run the app
 
 - Fundamentals
     - project development process
