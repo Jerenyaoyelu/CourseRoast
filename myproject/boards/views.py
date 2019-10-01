@@ -35,45 +35,70 @@ def board_topics(request,pk):
 
 def new_topic(request, pk):
     board = get_object_or_404(Board, pk=pk)
-    #currently, User model havent been touched, so it is None
-    #So, if using this directly, it will occur error
-    #to create an temporary user instance
-    # user = User.objects.first()
-    user=User.objects.create(username='user1',password='123456',email="user1@example.com",is_superuser=False)
-    # if request.method == 'POST':
-    #     form = NewTopicForm(request.POST)
-    #     if form.is_valid():
-    #         topic = form.save(commit=False)
-    #         topic.board = board
-    #         topic.starter = user
-    #         topic.save()
-    #         post = Post.objects.create(
-    #             message=form.cleaned_data.get('message'),
-    #             topic=topic,
-    #             created_by=user
-    #         )
-    #         return redirect('board_topics', pk=board.pk)  #todo: redirect to the created topic page
-    # else:
-    #     form = NewTopicForm()
-    # return render(request, 'new_topic.html', {'board': board, 'form': form})
-# def new_topic(request,pk):
-#     board=get_object_or_404(Board,pk=pk)
-#     user=User.objects.first()
-
-#     #grab data from html and start a new topic
     if request.method == 'POST':
-        form=NewTopicForm(request.POST)
-        if form.is_valid():
-            # topic=form.save(commit=False)
-            # topic.board = board
-            # topic.starter = user
-            topic=form.save()
-            # post=Post.objects.create(
-            #     message=message,
-            #     topic=topic,
-            #     created_by=user
-            # )
-            return redirect('board_topics',pk=board.pk)
-    else:
-        form=NewTopicForm()
-    return render(request,'new_topic.html',{'board':board,'form':form})
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        user = User.objects.first()  # TODO: get the currently logged in user
+
+        topic = Topic.objects.create(
+            subject=subject,
+            board=board,
+            starter=user
+        )
+
+        post = Post.objects.create(
+            message=message,
+            topic=topic,
+            created_by=user
+        )
+
+        return redirect('board_topics', pk=board.pk)  # TODO: redirect to the created topic page
+
+    return render(request, 'new_topic.html', {'board': board})
+
+
+    #if there is no users created, this will occur error message
+#     user = User.objects.first()
+#     print('as')
+#     print(board)
+#     print(user)
+#     print('as')
+
+#     # if request.method == 'POST':
+#     #     form = NewTopicForm(request.POST)
+#     #     if form.is_valid():
+#     #         topic = form.save(commit=False)
+#     #         topic.board = board
+#     #         topic.starter = user
+#     #         topic.save()
+#     #         post = Post.objects.create(
+#     #             message=form.cleaned_data.get('message'),
+#     #             topic=topic,
+#     #             created_by=user
+#     #         )
+#     #         return redirect('board_topics', pk=board.pk)  #todo: redirect to the created topic page
+#     # else:
+#     #     form = NewTopicForm()
+#     # return render(request, 'new_topic.html', {'board': board, 'form': form})
+# # def new_topic(request,pk):
+# #     board=get_object_or_404(Board,pk=pk)
+# #     user=User.objects.first()
+
+# #     #grab data from html and start a new topic
+#     if request.method == 'POST':
+#         form=NewTopicForm(request.POST)
+#         if form.is_valid():
+#             # topic=form.save(commit=False)
+#             # topic.board = board
+#             # topic.starter = user
+#             topic=form.save()
+#             # post=Post.objects.create(
+#             #     message=message,
+#             #     topic=topic,
+#             #     created_by=user
+#             # )
+#             return redirect('board_topics',pk=board.pk)
+#     else:
+#         form=NewTopicForm()
+#     return render(request,'new_topic.html',{'board':board,'form':form})
