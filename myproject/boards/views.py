@@ -39,41 +39,41 @@ def new_topic(request, pk):
     #So, if using this directly, it will occur error
     #to create an temporary user instance
     # user = User.objects.first()
-    user=User.objects.create(username='user1')
-    if request.method == 'POST':
-        form = NewTopicForm(request.POST)
-        if form.is_valid():
-            topic = form.save(commit=False)
-            topic.board = board
-            topic.starter = user
-            topic.save()
-            post = Post.objects.create(
-                message=form.cleaned_data.get('message'),
-                topic=topic,
-                created_by=user
-            )
-            return redirect('board_topics', pk=board.pk)  #todo: redirect to the created topic page
-    else:
-        form = NewTopicForm()
-    return render(request, 'new_topic.html', {'board': board, 'form': form})
+    user=User.objects.create(username='user1',password='123456',email="user1@example.com",is_superuser=False)
+    # if request.method == 'POST':
+    #     form = NewTopicForm(request.POST)
+    #     if form.is_valid():
+    #         topic = form.save(commit=False)
+    #         topic.board = board
+    #         topic.starter = user
+    #         topic.save()
+    #         post = Post.objects.create(
+    #             message=form.cleaned_data.get('message'),
+    #             topic=topic,
+    #             created_by=user
+    #         )
+    #         return redirect('board_topics', pk=board.pk)  #todo: redirect to the created topic page
+    # else:
+    #     form = NewTopicForm()
+    # return render(request, 'new_topic.html', {'board': board, 'form': form})
 # def new_topic(request,pk):
 #     board=get_object_or_404(Board,pk=pk)
 #     user=User.objects.first()
 
 #     #grab data from html and start a new topic
-#     if request.method == 'POST':
-#         form=NewTopicForm(request.POST)
-#         if form.is_valid():
-#             # topic=form.save(commit=False)
-#             # topic.board = board
-#             # topic.starter = user
-#             # topic=form.save()
-#             # post=Post.objects.create(
-#             #     message=message,
-#             #     topic=topic,
-#             #     created_by=user
-#             # )
-#             return redirect('board_topics',pk=board.pk)
-#     else:
-#         form=NewTopicForm()
-#     return render(request,'new_topic.html',{'board':board,'form':form})
+    if request.method == 'POST':
+        form=NewTopicForm(request.POST)
+        if form.is_valid():
+            # topic=form.save(commit=False)
+            # topic.board = board
+            # topic.starter = user
+            topic=form.save()
+            # post=Post.objects.create(
+            #     message=message,
+            #     topic=topic,
+            #     created_by=user
+            # )
+            return redirect('board_topics',pk=board.pk)
+    else:
+        form=NewTopicForm()
+    return render(request,'new_topic.html',{'board':board,'form':form})
