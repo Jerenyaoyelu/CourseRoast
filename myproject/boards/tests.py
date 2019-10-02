@@ -101,9 +101,12 @@ class NewTopicTests(TestCase):
 
     def test_new_topic_valid_post_data(self):
         url = reverse('new_topic', kwargs={'pk': 1})
+        # #when testing, NOT NULL constraint error occurs
+        test_user = User.objects.create(password= "asasas123")
         data = {
             'subject': 'Test title',
-            'message': 'Lorem ipsum dolor sit amet'
+            'message': 'Lorem ipsum dolor sit amet',
+            'starter':test_user
         }
         response = self.client.post(url, data)
         self.assertTrue(Topic.objects.exists())
