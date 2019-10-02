@@ -15,8 +15,10 @@ class Topic(models.Model):
     subject = models.CharField(max_length = 255)
     last_update = models.DateTimeField(auto_now_add = True)
     board = models.ForeignKey(Board,on_delete = models.CASCADE,related_name = 'topics')
-    #blank=True,null=True should solve the NOT NULL constraints error as well in the tests.py
+    #blank=True,null=True should be able to solve the NOT NULL constraints error as well in the tests.py
     #but no, why??
+    #The reason is that I did not migrate to DB, so even I changed the code, the table in the DB has not been changed,
+    #So when I run tests, it still requires not null constraint.
     starter = models.ForeignKey(User,on_delete = models.CASCADE,related_name = 'topics')
 
 class Post(models.Model):
