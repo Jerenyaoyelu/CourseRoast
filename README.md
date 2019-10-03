@@ -68,3 +68,4 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
         - Reusable Templates
             > - create a master page with the base stuff
     - Forms
+        - reusable form

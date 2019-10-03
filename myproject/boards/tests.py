@@ -4,6 +4,7 @@ from django.urls import reverse,resolve
 from .views import home, board_topics, new_topic
 from .models import Board, Post, Topic
 from django.contrib.auth.models import User
+from .forms import NewTopicForm
 
 # Create your tests here.
 #error 500: internal server error
@@ -119,7 +120,10 @@ class NewTopicTests(TestCase):
         '''
         url=reverse('new_topic',kwargs={'pk':1})
         response=self.client.post(url,{})#sending empty dict to check how the app is behaving
+        form=response.context.get('form')
         self.assertEquals(response.status_code,200)
+        #make sure the form is showing errors when the data is invalid
+        self.assertTrue(form.errors)
 
     def test_new_topic_invalid_post_data_empty_fields(self):
         '''
@@ -136,3 +140,10 @@ class NewTopicTests(TestCase):
         self.assertEquals(response.status_code,200)
         self.assertFalse(Topic.objects.exists())
         self.assertFalse(Post.objects.exists())
+
+    def test_contains_form(self):
+        url=reverse('new_topic',kwargs={'pk':1})
+        response=self.client.get(url)
+        form=response.context.get('form')
+        #grab form instance in the context data and check if it is a NewTopicForm
+        self.assertIsInstance(form,NewTopicForm)
