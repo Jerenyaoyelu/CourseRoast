@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf.urls import url
 
 from boards import views
+from accounts import views as accounts_views
 
 #the order in urlpatterns matters
 #because Django matches url following this order,
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'^$',views.home,name = 'home'),#supports more complex regular expression
     #\d matches [0-9] and other digit characters.
     #'+' signifies that there must be at least 1 or more digits in the number
+    url(r'^signup/$',accounts_views.signup,name='signup'),
     url(r'^boards/(?P<pk>\d+)/$',views.board_topics,name='board_topics'),
     url(r'^boards/(?P<pk>\d+)/new/$',views.new_topic,name='new_topic'),
 

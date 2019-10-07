@@ -69,3 +69,7 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
             > - create a master page with the base stuff
     - Forms
         - reusable form
+
+- Authentication
+    - user account related stuff
+
