@@ -1,5 +1,6 @@
-__pycache__/
+/__pycache__/
 *.py[cod]
 .env
 venv/
 *.sqlite3
+.gitignore
