@@ -72,4 +72,7 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
 
 - Authentication
     - user account related stuff
+    - start an app for this part
+        > ```django-admin startapp accounts```
+    
 

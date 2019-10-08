@@ -26,7 +26,7 @@ SECRET_KEY = '8a1h_gxrnj@zrga52qv1pnyq8_5pi(k*6d_z*f+mmgyv^@a8=c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['54.206.124.107','ec2-54-206-124-107.ap-southeast-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['www.golyy.org','golyy.org','127.0.0.1','3.105.135.20']
 
 
 # Application definition
