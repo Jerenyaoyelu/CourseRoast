@@ -74,9 +74,17 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
     - user account related stuff
     - start an app for this part
         > ```django-admin startapp accounts```
-        > add feilds
+        > add email feild in login
         > custmize backgroud of accounts
             >  https://www.toptal.com/designers/subtlepatterns/ choose a nice pattern and download the image or choose a image you like somewhere else
             > place it in the `static/img`
-        > 
-
+        > add logout
+    - Displaying Menu For Authenticated Users
+        - add dropdown menu with logout link for logged users
+            - Bootstrap 4 dropdown component needs jQuery to work
+                > https://jquery.com/download/ download the compressed, production jQuery newest version
+            - Bootstrap 4 also needs a library called Popper to work
+                > https://popper.js.org/ download the latest version
+                > Inside the `popper.js-1.12.5` folder, go to `dist/umd` and copy the file `popper.min.js` to our `js` folder
+            - copy the `bootstrap.min.js` file to our js folder as well
+    - add login functionality
