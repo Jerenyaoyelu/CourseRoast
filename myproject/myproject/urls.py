@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
+from django.contrib.auth import views as auth_views
 
 from boards import views
 from accounts import views as accounts_views
@@ -24,15 +25,17 @@ from accounts import views as accounts_views
 #because Django matches url following this order,
 #and if a url is very permissive, it may never go to the urls below it
 urlpatterns = [
-    path('admin/', admin.site.urls),#for simpler lookups
     #r'' specifies that the string is a raw string. 
     #'^' signifies the start, and $ marks the end.
     url(r'^$',views.home,name = 'home'),#supports more complex regular expression
     #\d matches [0-9] and other digit characters.
     #'+' signifies that there must be at least 1 or more digits in the number
     url(r'^signup/$',accounts_views.signup,name='signup'),
+    # LogoutView.as_view() is a Django’s class-based view, providing a more flexible way to extend and reuse views
+    url(r'^logout/$',auth_views.LogoutView.as_view(),name='logout'),
     url(r'^boards/(?P<pk>\d+)/$',views.board_topics,name='board_topics'),
     url(r'^boards/(?P<pk>\d+)/new/$',views.new_topic,name='new_topic'),
+    path('admin/', admin.site.urls),#for simpler lookups
 
     #1. adding page
     # url(r'^about/$',view.about,name='about'),
