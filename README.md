@@ -74,5 +74,9 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
     - user account related stuff
     - start an app for this part
         > ```django-admin startapp accounts```
-    
+        > add feilds
+        > custmize backgroud of accounts
+            >  https://www.toptal.com/designers/subtlepatterns/ choose a nice pattern and download the image or choose a image you like somewhere else
+            > place it in the `static/img`
+        > 
 
