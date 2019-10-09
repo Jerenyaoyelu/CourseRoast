@@ -1,0 +1,3 @@
+scp -ri /Volumes/Guess_What/MIT_coursework/Django_python/key/lyy.pem /Volumes/Guess_What/MIT_coursework/Django_python/myproject/myproject '/Volumes/Guess_What/MIT_coursework/Django_python/myproject/requirements.txt'  ubuntu@ec2-3-105-135-20.ap-southeast-2.compute.amazonaws.com:~/my_first_django_project/
+
+ssh -i /Volumes/Guess_What/MIT_coursework/Django_python/key/lyy.pem ubuntu@ec2-3-105-135-20.ap-southeast-2.compute.amazonaws.com 'sudo systemctl daemon-reload; sudo systemctl restart gunicorn; sudo systemctl restart nginx'
