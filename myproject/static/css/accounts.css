@@ -1,0 +1,21 @@
+body{
+    background-image: url(../img/signupBKG.jpg);
+    /* background image to fit width, height should auto-scale in proportion  */
+    background-size: cover;
+    background-position: center center; 
+}
+
+.logo{
+    font-family: 'Peralta',cursive;
+}
+
+.logo a{
+    color:rgba(252, 249, 249, 0.9);
+}
+
+/* The :hover selector is used to select elements when you mouse over them */
+.logo a:hover,
+.logo a:active{
+    /* specifies the decoration added to text */
+    text-decoration:none;
+}
