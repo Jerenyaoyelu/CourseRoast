@@ -1,12 +1,35 @@
-# Django tutorial --- from zero to deloyment
+# Course Roast Board
+
+## Description
+
+This Project is a purpose of learning Django framework as a backend, developed in a virtual environment and deployed in the free AWS EC2 instance linking to the domain name `golyy.org`
+
+- Frontend
+    > HTML
+    > bootstrap 4
+    > jQuery
+
+- Backend
+    > Django
+
+- Deployment
+    > Gunicorn
+    > Nginx
+    > AWS ubuntu@EC2
+
+## Commit Changes to the project
+simply run the script `golyyUD.sh`
 
 
-This repository is a learning practice following [Vitor Freitas's](https://simpleisbetterthancomplex.com/series/2017/09/11/a-complete-beginners-guide-to-django-part-2.html) tutorial, related links refering to https://github.com/sibtc/django-beginners-guide/tree/v0.1-lw
-
-1. Development
-
+## Development Steps
 - Get Started
     - Installation, env setup
+        - prepare VM
+        > ```sudo apt-get install python3-venv```
+        > ```python3 -m venv venv```
+        > ```source env/bin/activate```
+        - setup required libs
+        > ```pip install -r requirements.txt```
     - Starting a new project
         > - ``` django-admin startproject [porjectName]```
         > - "manage.py": shortcut to use the django-admin command-line utility. We use it to run dev server, tests, create migrations and much more
@@ -92,3 +115,7 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
         - link logic: `urls.py` $\rightarrow$ configure `LOGIN_REDIRECT_URL = 'home'` in `settings.py` $\rightarrow$ link `url` in `href` of `login` `a` tag $\rightarrow$ create `login.html`
         - link `signup` and `login` by adding `url` in `href`
     - Creating Custom Template Tags
+
+## Reference
+
+>This project is based on [Vitor Freitas's](https://simpleisbetterthancomplex.com/series/2017/09/11/a-complete-beginners-guide-to-django-part-2.html) Dajngo tutorial, and custmized a little bit.
