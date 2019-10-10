@@ -132,5 +132,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# add configuration for custmized functionalities
+# tell Django where to redirect
 STATIC_ROOT = os.path.join(BASE_DIR,'static/')
+
 LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'

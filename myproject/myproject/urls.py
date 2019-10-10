@@ -31,6 +31,7 @@ urlpatterns = [
     #\d matches [0-9] and other digit characters.
     #'+' signifies that there must be at least 1 or more digits in the number
     url(r'^signup/$',accounts_views.signup,name='signup'),
+    url(r'^login/$',auth_views.LoginView.as_view(template_name='login.html'),name='login'),
     # LogoutView.as_view() is a Django’s class-based view, providing a more flexible way to extend and reuse views
     url(r'^logout/$',auth_views.LogoutView.as_view(),name='logout'),
     url(r'^boards/(?P<pk>\d+)/$',views.board_topics,name='board_topics'),
