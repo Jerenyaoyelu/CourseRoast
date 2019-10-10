@@ -78,6 +78,7 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
         > custmize backgroud of accounts
             >  https://www.toptal.com/designers/subtlepatterns/ choose a nice pattern and download the image or choose a image you like somewhere else
             > place it in the `static/img`
+            > apply it in `accounts.css` 
         > add logout
     - Displaying Menu For Authenticated Users
         - add dropdown menu with logout link for logged users
@@ -88,3 +89,5 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
                 > Inside the `popper.js-1.12.5` folder, go to `dist/umd` and copy the file `popper.min.js` to our `js` folder
             - copy the `bootstrap.min.js` file to our js folder as well
     - add login functionality
+        - link logic: `urls.py` $\rightarrow$ configure `LOGIN_REDIRECT_URL = 'home'` in `settings.py` $\rightarrow$ link `url` in `href` of `login` `a` tag $\rightarrow$ create `login.html`
+        - link `signup` and `login` by adding `url` in `href`
