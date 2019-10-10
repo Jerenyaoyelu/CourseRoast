@@ -40,7 +40,7 @@ class SuccessfulSignUpTests(TestCase):
         url=reverse('signup')
         data={
             'username':'john',
-            'email':'john@doe.com'
+            'email':'john@doe.com',
             'password1':'abcdef1234',
             'password2':'abcdef1234'
         }
@@ -88,5 +88,5 @@ class SignUpFormTest(TestCase):
     def test_form_has_fields(self):
         form=SignUpForm()
         expected=['username','email','password1','password2',]
-        actual=list(form.feilds)
+        actual=list(form.fields)
         self.assertSequenceEqual(expected,actual)
