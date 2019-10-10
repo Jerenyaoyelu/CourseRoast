@@ -1,5 +1,19 @@
 {% load widget_tweaks %}
 
+<!--
+    - p tag has a margin-bottom.
+    - a form may have several non-field errors. For each non-field error, we render a p tag with the error. 
+    - Then I’m checking if it’s the last error to render. If so, we add a Bootstrap 4 CSS class mb-0 which stands for “margin bottom = 0”. 
+    - Then the alert doesn’t look weird, with some extra space.
+-->
+{% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        {% for error in form.non_field_errors %}
+            <p {% if forloop.last %} class="md-0"{% endif %}>{{error}}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
 {% for field in form %}
     <div class='form-group'>
         {{field.label_tag}}
