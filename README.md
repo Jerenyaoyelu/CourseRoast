@@ -17,6 +17,10 @@ This Project is a purpose of learning Django framework as a backend, developed i
     > Nginx
     > AWS ubuntu@EC2
 
+## Importance
+- This project demo is currently under development, many features are not yet to be done.
+- All the data are fake, and may be not related to course roasting, just for testing purpose.
+
 ## Commit Changes to the project
 simply run the script `golyyUD.sh`
 
