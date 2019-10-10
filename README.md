@@ -91,3 +91,4 @@ This repository is a learning practice following [Vitor Freitas's](https://simpl
     - add login functionality
         - link logic: `urls.py` $\rightarrow$ configure `LOGIN_REDIRECT_URL = 'home'` in `settings.py` $\rightarrow$ link `url` in `href` of `login` `a` tag $\rightarrow$ create `login.html`
         - link `signup` and `login` by adding `url` in `href`
+    - Creating Custom Template Tags
